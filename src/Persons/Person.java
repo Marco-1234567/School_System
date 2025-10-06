@@ -2,10 +2,14 @@ package Persons;
 
 public abstract class Person {
 
-    private String firstName;
-    private String lastName;
+    private static int countForPersonId = 0;
+
+    private final int personId;
+    private final String firstName;
+    private final String lastName;
 
     public Person(String firstName, String lastName) {
+        this.personId = countForPersonId++;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -21,8 +25,9 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "ID = '" + personId + '\'' +
+                "firstName = '" + firstName + '\'' +
+                ", lastName = '" + lastName + '\'' +
                 '}';
     }
 }
