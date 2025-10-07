@@ -2,16 +2,19 @@ package course;
 
 import java.util.ArrayList;
 import java.util.List;
+import Persons.Teacher;
 
 public final class ActiveCourse extends CourseDefinition{
 
-public enum Status {PLANNED, ACTIVE, FINISHED, CANCELLED}
+    public enum Status {PLANNED, ACTIVE, FINISHED, CANCELLED}
+
+    private static int staticCountId = 0;
 
     private final int activeCourseId;
     private final String startDate;
     private final String endDate;
     private final ArrayList<Teacher> teachers;
-    private final int enrollmentLimit;
+    private int enrollmentLimit;
     private final String gradeSchemeId;
     private Status status;
 
@@ -22,7 +25,6 @@ public enum Status {PLANNED, ACTIVE, FINISHED, CANCELLED}
             float credits,
             String subjectArea,
             String level,
-            int activeCourseId,
             String startDate,
             String endDate,
             List<Teacher> teachers,
@@ -31,7 +33,7 @@ public enum Status {PLANNED, ACTIVE, FINISHED, CANCELLED}
             Status status
     ) {
         super(courseId, name, description, credits, subjectArea, level);
-        this.activeCourseId = activeCourseId;
+        this.activeCourseId = staticCountId++;
         this.startDate = startDate;
         this.endDate = endDate;
         this.teachers = new ArrayList<>(teachers);
@@ -59,16 +61,10 @@ public enum Status {PLANNED, ACTIVE, FINISHED, CANCELLED}
     }
 
     public void setEnrollmentLimit(int enrollmentLimit) {
+
         this.enrollmentLimit = enrollmentLimit;
     }
 
-    // Lägg till/ta bort lärare i listan
-    public void addTeacher(Teacher teacher) {
-        teachers.add(teacher);
-    }
 
-    public void removeTeacher(Teacher teacher) {
-        teachers.remove(teacher);
-    }
 
 }
