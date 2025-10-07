@@ -3,6 +3,8 @@ import course.CourseDefinition;
 import course.CourseDefinitionManager;
 import course.ActiveCourse;
 import course.ActiveCourseManager;
+import Persons.Student;
+import Persons.StudentManagement;
 
 public class Application {
 
@@ -22,7 +24,6 @@ public class Application {
         }
 
         return instance;
-
     }
 
     public  void run(){
@@ -76,4 +77,23 @@ public class Application {
 
 
 
+        // todo bla bla Student testing
+        TestData td = new TestData();
+        StudentManagement sManager = new StudentManagement(td.getStudentsData());
+
+        System.out.println("\nStudent list at start:");
+        sManager.PrintListStudents();
+
+        sManager.addStudent( new Student("David", "D"));
+        System.out.println("\nStudent list after add:");
+        sManager.PrintListStudents();
+
+        System.out.println("\nStudent list after remove no 3:");
+        sManager.removeStudent(2);  // Obs: [0-n]
+        sManager.PrintListStudents();
+
+
+
+        //-----to here -------------------------
+    }
 }
