@@ -15,14 +15,13 @@ public class Application {
         }
 
         return instance;
-
     }
 
     public  void run(){
 
         // todo bla bla Student testing
-
-        StudentManagement sManager = new StudentManagement();
+        TestData td = new TestData();
+        StudentManagement sManager = new StudentManagement(td.getStudentsData());
 
         System.out.println("\nStudent list at start:");
         sManager.PrintListStudents();
