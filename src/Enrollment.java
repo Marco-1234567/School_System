@@ -24,11 +24,7 @@ public class Enrollment {
     private String gradedAt;
     private String gradeComment;
 
-    //om vi läser från en fil kan det vara bra att ha en sån här konstruktor
-    //public Enrollment() {
-//        this.status = Status.ACTIVE;
-//        this.finalGradeStatus = GradeStatus.NONE;
-//    }
+
 
     public Enrollment(int enrollmentId,
                       int studentId,
