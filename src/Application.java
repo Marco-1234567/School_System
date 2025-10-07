@@ -15,6 +15,7 @@ public class Application {
         }
 
         return instance;
+
     }
 
     public  void run(){
