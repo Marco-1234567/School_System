@@ -49,7 +49,7 @@ public class ActiveCourseManager {
 
     public void printListActiveCourses(){
         if (activeCourses.isEmpty()){
-            System.out.println("(inga aktiva kurser)");
+            System.out.println("(no active courses available to display)");
             return;
         }
         for (int i = 0; i < activeCourses.size(); i++){

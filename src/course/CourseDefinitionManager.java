@@ -14,7 +14,7 @@ public class CourseDefinitionManager {
 
     public void printListCourseDefinitions(){
         if (courses.isEmpty()){
-            System.out.println("(inga kursdefinitioner)");
+            System.out.println("(no courses available to display)");
             return;
         }
         for (int i = 0; i < courses.size(); i++){
