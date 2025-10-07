@@ -26,20 +26,16 @@ public class Application {
         return instance;
     }
 
-    public  void run(){
+    public  void run() {
 
         // todo bla bla
-
-
-
-
 
 
         //Course defefinition
         // lägg till
         CourseDefinitionManager courseDefinitionManager = new CourseDefinitionManager();
-        courseDefinitionManager.addCourseDefinition(new CourseDefinition("MA1001","Matematik 1","",100f,"Matematik","Gymnasie"));
-        courseDefinitionManager.addCourseDefinition(new CourseDefinition("SV3","Svenska 3","",100f,"Svenska","Gymnasie"));
+        courseDefinitionManager.addCourseDefinition(new CourseDefinition("MA1001", "Matematik 1", "", 100f, "Matematik", "Gymnasie"));
+        courseDefinitionManager.addCourseDefinition(new CourseDefinition("SV3", "Svenska 3", "", 100f, "Svenska", "Gymnasie"));
 
         //Se
         courseDefinitionManager.printListCourseDefinitions();
@@ -56,21 +52,18 @@ public class Application {
         //testdata
         int num = 1;
         String start = "2025-08-20";
-        String end   = "2025-12-15";
-        int limit    = 30;
-        String scheme= "LETTER";
+        String end = "2025-12-15";
+        int limit = 30;
+        String scheme = "LETTER";
         // Skapa och lägg till ActiveCourse direkt från CourseDefinition-valet
         ActiveCourse ac = activeCourseManager.addFromSelection(num, courseDefinitionManager, start, end, limit, scheme);
 
         if (ac == null) {
             System.out.println("Ogiltigt nummer – ingen kurs skapad.");
         } else {
-            System.out.println("Skapade ActiveCourse med id: " + ac.getActiveCourseId());
+            System.out.println("Invalid selection — no course created: " + ac.getActiveCourseId());
         }
 
-
-
-        }
 
 
 
