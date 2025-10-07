@@ -1,5 +1,6 @@
 import Persons.Student;
 import Persons.StudentManagement;
+import menus.MainMenu;
 
 public class Application {
 
@@ -18,9 +19,10 @@ public class Application {
     }
 
     public  void run(){
-
+        //----Sebastian's menu =BEGIN---------
+        MainMenu.getInstance().draw();
+        //----Sebastian's menu =END-----------
         // todo bla bla Student testing
-
         StudentManagement sManager = new StudentManagement();
 
         System.out.println("\nStudent list at start:");
