@@ -1,5 +1,6 @@
 package course;
 
+import Persons.Teacher;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public enum Status {PLANNED, ACTIVE, FINISHED, CANCELLED}
     private final String startDate;
     private final String endDate;
     private final ArrayList<Teacher> teachers;
-    private final int enrollmentLimit;
+    private int enrollmentLimit;
     private final String gradeSchemeId;
     private Status status;
 
