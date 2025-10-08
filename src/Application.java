@@ -5,6 +5,7 @@ import course.ActiveCourse;
 import course.ActiveCourseManager;
 import Persons.Student;
 import Persons.StudentManagement;
+import menus.MainMenu;
 
 public class Application {
 
@@ -64,13 +65,8 @@ public class Application {
             System.out.println("Invalid selection — no course created: " + ac.getActiveCourseId());
         }
 
-
-
-
-
-
-
         // todo bla bla Student testing
+
         TestData td = new TestData();
         StudentManagement sManager = new StudentManagement(td.getStudentsData());
 
@@ -88,5 +84,10 @@ public class Application {
 
 
         //-----to here -------------------------
+
+        //----Sebastian's menu =BEGIN---------
+        MainMenu.getInstance().draw();
+        //----Sebastian's menu =END-----------
+
     }
 }
