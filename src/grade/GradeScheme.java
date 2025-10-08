@@ -1,5 +1,5 @@
 package grade;
 
-public interface GradeSchema {
-    Grade evaluate(int scoreValue);
+public interface GradeScheme {
+    Grade evaluateGrade(int scoreValue);
 }
