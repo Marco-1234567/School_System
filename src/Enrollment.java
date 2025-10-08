@@ -1,42 +1,45 @@
+import Persons.Student;
+import course.ActiveCourse;
+import grade.Grade;
+
 public class Enrollment {
-    public enum Status {
-        ACTIVE,    // inskriven och pågående
-        DROPPED,   // avbrutit
-        COMPLETED  // avslutad
-    }
+    private final Student student;
+    private final ActiveCourse activeCourse;
+    private final Grade grade;
+    private final String enrolledDate;
 
-    public enum GradeStatus {
-        NONE,   // inget slutbetyg satt
-        DRAFT,  // kan ändras
-        FINAL   // fastställt
-    }
-
-    private int enrollmentId;
-    private int studentId;
-    private int activeCourseId;
-    private String enrolledDate;
-    private Status status;
+//    public enum Status {
+//        ACTIVE,    // inskriven och pågående
+//        DROPPED,   // avbrutit
+//        COMPLETED  // avslutad
+//    }
+//    public enum GradeStatus {
+//        NONE,   // inget slutbetyg satt
+//        DRAFT,  // kan ändras
+//        FINAL   // fastställt
+//    }
 
     //Betyg
-    private String finalGrade;
-    private GradeStatus finalGradeStatus; //NONE, DAFT, FINAL
-    private Integer gradedByTeacherId;
-    private String gradedAt;
-    private String gradeComment;
+//    private String finalGrade;
+//    private GradeStatus finalGradeStatus; //NONE, DAFT, FINAL
+//    private Integer gradedByTeacherId;
+//    private String gradedAt;
+//    private String gradeComment;
 
+    public Enrollment(
+                      Student student,
+                      Grade grade,
+                      ActiveCourse activeCourse,
+                      String enrolledDate
+                     ) {
+        this.student= student;
+        this.grade = grade;
+        this.activeCourse = activeCourse;
+        this.enrolledDate=enrolledDate;
+    }
 
-
-    public Enrollment(int enrollmentId,
-                      int studentId,
-                      int activeCourseId,
-                      String enrolledDate,
-                      Status status) {
-        this.enrollmentId = enrollmentId;
-        this.studentId = studentId;
-        this.activeCourseId = activeCourseId;
-        this.enrolledDate = enrolledDate;
-        this.status = status;
-        this.finalGradeStatus = GradeStatus.NONE;
+    public String toString() {
+      return student.toString() + " " + grade.toString() + " " + activeCourse.toString() + " " + enrolledDate;
     }
 
 }
