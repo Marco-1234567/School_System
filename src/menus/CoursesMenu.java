@@ -1,7 +1,5 @@
 package menus;
 
-import java.util.Stack;
-
 public class CoursesMenu extends Menu {
     private static final CoursesMenu INSTANCE = new CoursesMenu("Courses");
     private CoursesMenu(String title) {

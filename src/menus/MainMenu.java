@@ -1,8 +1,5 @@
 package menus;
 
-import java.util.Scanner;
-import java.util.Stack;
-
 public class MainMenu extends Menu {
     private static final MainMenu INSTANCE = new MainMenu("School System Menu");
     private MainMenu(String title) {
