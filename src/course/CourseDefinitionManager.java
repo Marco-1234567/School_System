@@ -19,7 +19,7 @@ public class CourseDefinitionManager {
         }
         for (int i = 0; i < courses.size(); i++){
             CourseDefinition c = courses.get(i);
-            System.out.println((i+1) + ". " + c.getCourseId() + " - " + c.getName());
+            System.out.println(". " + (i+1) + ". " + c.getCourseId() + " - " + c.getName());
         }
     }
 

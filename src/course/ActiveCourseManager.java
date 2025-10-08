@@ -9,6 +9,14 @@ public class ActiveCourseManager {
 
     private final ArrayList<ActiveCourse> activeCourses = new ArrayList<>();
 
+
+
+    public ActiveCourseManager(List<ActiveCourse> activeCourses) {
+        if (activeCourses != null) {
+            this.activeCourses.addAll(activeCourses);
+        }
+    }
+
     public ActiveCourse addFromDefinition(CourseDefinition base,
                                           String startDate,
                                           String endDate,
