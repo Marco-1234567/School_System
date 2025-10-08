@@ -5,6 +5,9 @@ import course.ActiveCourse;
 import course.ActiveCourseManager;
 import Persons.Student;
 import Persons.StudentManagement;
+import grade.Grade;
+import grade.GradeScheme;
+import grade.LetterGradeScheme;
 import menus.MainMenu;
 
 public class Application {
@@ -55,7 +58,7 @@ public class Application {
         String start = "2025-08-20";
         String end = "2025-12-15";
         int limit = 30;
-        String scheme = "LETTER";
+        GradeScheme scheme = new LetterGradeScheme();
         // Skapa och lägg till ActiveCourse direkt från CourseDefinition-valet
         ActiveCourse ac = activeCourseManager.addFromSelection(num, courseDefinitionManager, start, end, limit, scheme);
 
@@ -89,5 +92,28 @@ public class Application {
         MainMenu.getInstance().draw();
         //----Sebastian's menu =END-----------
 
+        //------Enrollment_____//
+       Student student = new Student("David", "D");
+      GradeScheme scheme2 = new LetterGradeScheme();
+        int score = 56;
+        Grade grade = scheme2.evaluateGrade(score);
+        String enrollmentDate = "2025-08-20";
+        ActiveCourse programming1 = new ActiveCourse(
+                "CS101",
+                "Programmering 1",
+                "Introduktion till Java",
+                7.5f,
+                "Computer Science",
+                "Beginner",
+                "2025-08-20",
+                "2025-12-15",
+                30,
+                scheme2,
+                ActiveCourse.Status.ACTIVE
+        );
+        Enrollment enrollment1 = new Enrollment(student, grade, programming1, enrollmentDate);
+        System.out.println("Enrollment 1: "+ enrollment1.toString());
+
+        //_____Enrollment End___//
     }
 }
