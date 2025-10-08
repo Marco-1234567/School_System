@@ -1,5 +1,7 @@
 package course;
 import Persons.Teacher;
+import grade.GradeScheme;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,8 @@ public class ActiveCourseManager {
                                           String startDate,
                                           String endDate,
                                           int enrollmentLimit,
-                                          String gradeSchemeId) {
+                                          GradeScheme gradeScheme
+                                         ) {
         if (base == null) return null;
         ActiveCourse ac = new ActiveCourse(
                 base.getCourseId(),
@@ -30,9 +33,9 @@ public class ActiveCourseManager {
                 base.getLevel(),
                 startDate,
                 endDate,
-                new ArrayList<Teacher>(),                   //tom
+                //new ArrayList<Teacher>(),                   //tom
                 enrollmentLimit,
-                gradeSchemeId,
+                gradeScheme,
                 ActiveCourse.Status.PLANNED
         );
         activeCourses.add(ac);
@@ -44,9 +47,9 @@ public class ActiveCourseManager {
                                          String startDate,
                                          String endDate,
                                          int enrollmentLimit,
-                                         String gradeSchemeId) {
+                                         GradeScheme gradeScheme) {
         CourseDefinition base = courseMgr.selectCourseDefinitionByNumber(number);
-        return addFromDefinition(base, startDate, endDate, enrollmentLimit, gradeSchemeId);
+        return addFromDefinition(base, startDate, endDate, enrollmentLimit, gradeScheme);
     }
 
     public void removeActiveCourse(int index){
