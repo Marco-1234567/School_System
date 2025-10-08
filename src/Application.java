@@ -65,11 +65,8 @@ public class Application {
             System.out.println("Invalid selection — no course created: " + ac.getActiveCourseId());
         }
 
-        //----Sebastian's menu =BEGIN---------
-        MainMenu.getInstance().draw();
-        //----Sebastian's menu =END-----------
         // todo bla bla Student testing
-        StudentManagement sManager = new StudentManagement();
+
         TestData td = new TestData();
         StudentManagement sManager = new StudentManagement(td.getStudentsData());
 
@@ -87,5 +84,10 @@ public class Application {
 
 
         //-----to here -------------------------
+
+        //----Sebastian's menu =BEGIN---------
+        MainMenu.getInstance().draw();
+        //----Sebastian's menu =END-----------
+
     }
 }
