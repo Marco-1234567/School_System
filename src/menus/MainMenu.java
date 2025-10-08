@@ -1,22 +1,28 @@
 package menus;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class MainMenu extends Menu {
-    private static final Scanner SCANNER = new Scanner(System.in);
-    private static final MainMenu INSTANCE = new MainMenu("School System Menu");;
+    private static final MainMenu INSTANCE = new MainMenu("School System Menu");
     private MainMenu(String title) {
         super(
             title,
             new Menu[] {
-                new StudentMenu("Students"),
-                new TeacherMenu("Teachers"),
-                new CoursesMenu("Courses")
+                StudentMenu.get(),
+                CoursesMenu.get(),
+                TeacherMenu.get()
             }
         );
     }
 
-    public static MainMenu getInstance() {
+    public static MainMenu get() {
         return INSTANCE;
+    }
+
+    @Override
+    protected void drawOptions() {
+        super.drawOptions();
+        System.out.printf("0. Exit%n");
     }
 }
