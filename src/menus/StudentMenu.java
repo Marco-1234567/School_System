@@ -8,7 +8,7 @@ public class StudentMenu extends Menu {
             new Menu[] {
                 AddStudentMenu.get(),
                 ListStudentsMenu.get(),
-                //RemoveStudentMenu.get()
+                RemoveStudentMenu.get()
             }
         );
     }
