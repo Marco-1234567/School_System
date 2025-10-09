@@ -18,8 +18,7 @@ public class MainMenu extends Menu {
     }
 
     @Override
-    protected void drawOptions() {
-        super.drawOptions();
-        System.out.printf("0. Exit%n");
+    protected void drawFinalOption(String finalOption) {
+        super.drawFinalOption("Exit");
     }
 }

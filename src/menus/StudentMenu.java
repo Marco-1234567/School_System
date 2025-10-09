@@ -7,18 +7,13 @@ public class StudentMenu extends Menu {
             title,
             new Menu[] {
                 AddStudentMenu.get(),
-                ListStudentsMenu.get()
+                ListStudentsMenu.get(),
+                //RemoveStudentMenu.get()
             }
         );
     }
 
     public static StudentMenu get() {
         return INSTANCE;
-    }
-
-    @Override
-    protected void drawOptions() {
-        super.drawOptions();
-        System.out.printf("0. Back%n");
     }
 }
