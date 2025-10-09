@@ -1,3 +1,5 @@
+package data;
+
 import Persons.Student;
 import Persons.Teacher;
 import course.CourseDefinition;
@@ -8,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestData {
+    private static final TestData INSTANCE = new TestData();
+    public static TestData get() {
+        return INSTANCE;
+    }
 
     private ArrayList<Student> studentsData = new ArrayList<>( List.of(
             new Student("Adam", "Andersson"),
@@ -37,7 +43,7 @@ public class TestData {
 //            new ActiveCourse(),
 //    ) );
 
-    public TestData(){
+    private TestData() {
 
         CourseDefinition nr1 = courseCatalogueData.get(0);
 
