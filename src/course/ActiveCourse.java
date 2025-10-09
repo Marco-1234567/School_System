@@ -3,7 +3,10 @@ package course;
 
 
 
+import grade.Grade;
 import grade.GradeSystem;
+import grade.LetterGradeScheme;
+import grade.PassFailScheme;
 
 public final class ActiveCourse extends CourseDefinition{
 
