@@ -8,7 +8,11 @@ import course.ActiveCourseManager;
 import Persons.Student;
 import Persons.StudentManagement;
 import grade.*;
+<<<<<<< HEAD
 import menus.*;
+=======
+import menus.MainMenu;
+>>>>>>> d60feee65441c797ec6e689459ee690ca982cd9e
 
 public class Application {
 
