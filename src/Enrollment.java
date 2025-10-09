@@ -6,8 +6,9 @@ public class Enrollment {
     private final Student student;
     private final ActiveCourse activeCourse;
     private final String enrolledDate;
-    private final int  gradeScore;
-    private final Grade grade;
+    private  FinalGrade finalGrade;
+    private  GradeScore gradeScore;
+
 
 //    public enum Status {
 //        ACTIVE,    // inskriven och pågående
@@ -28,19 +29,22 @@ public class Enrollment {
 //    private String gradeComment;
 
     public Enrollment(
-                      Student student,
-                      ActiveCourse activeCourse,
-                      String enrolledDate,
-                      int gradeScore
+            Student student,
+            ActiveCourse activeCourse,
+            String enrolledDate,
+//            FinalGrade finalGrade,
+            GradeScore gradeScore
 
-                     ) {
+
+    ) {
+
         this.student= student;
         this.activeCourse = activeCourse;
         this.enrolledDate=enrolledDate;
-        this.gradeScore= gradeScore;
 
         GradeSystem gradeSystem = activeCourse.getGradeSystem();
         GradeScheme gradeScheme ;
+
 
         if(gradeSystem == GradeSystem.LETTER){
             gradeScheme = new LetterGradeScheme();
@@ -49,11 +53,15 @@ public class Enrollment {
         } else{
             throw new IllegalArgumentException("Invalid grade system");
         }
-        this.grade = gradeScheme.evaluateGrade(gradeScore);
+
+
+        Grade grade= gradeScheme.evaluateGrade(gradeScore.getGradeValue());
+        this.finalGrade= new FinalGrade(gradeScore, grade);
+//
     }
 
     public String toString() {
-      return student.toString() + " Grade:  " + grade.toString() + " / Course: " + activeCourse.toString() + "/ Date: " + enrolledDate;
+      return student.toString() + " Grade:  " + finalGrade.getGrade().toString() + " / Course: " + activeCourse.toString() + "/ Date: " + enrolledDate;
     }
 
 }
