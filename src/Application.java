@@ -111,7 +111,11 @@ public class Application {
 
         //------Enrollment_____//
        Student student = new Student("David", "D");
+<<<<<<< HEAD
         GradeScore gradeScore = new GradeScore(50);
+=======
+        int gradeScore = 56;
+>>>>>>> d3a3303 (Update grade classess, add GradeScore)
         String enrollmentDate = "2025-08-20";
         ActiveCourse programming1 = new ActiveCourse(
                 "CS101",
