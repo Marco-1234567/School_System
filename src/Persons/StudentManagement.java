@@ -1,11 +1,17 @@
 package Persons;
 
+import data.TestData;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentManagement {
-
+    private static final StudentManagement INSTANCE = new StudentManagement(TestData.get().getStudentsData());
     private List<Student> students = new ArrayList<>();
+
+    public static StudentManagement get() {
+        return INSTANCE;
+    }
 
     public StudentManagement(ArrayList<Student> students) {
         this.students = students;
