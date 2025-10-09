@@ -1,5 +1,7 @@
 package course;
 
+import grade.GradeSystem;
+
 public class CourseDefinition {
     private String courseId;
     private String name;
@@ -7,21 +9,23 @@ public class CourseDefinition {
     private float credits;
     private String subjectArea;
     private String level;
-    private String defaultGradeSchemeId;
-
+    private GradeSystem defaultGradeSystem;
+    private String program;
 
     public CourseDefinition(String courseId,
                             String name,
                             String description,
                             float credits,
                             String subjectArea,
-                            String level) {
+                            String level
+                            ) {
         this.courseId = courseId;
         this.name = name;
         this.description = description;
         this.credits = credits;
         this.subjectArea = subjectArea;
         this.level = level;
+        this.program = null;
     }
 
     public CourseDefinition(String courseId,
@@ -30,14 +34,32 @@ public class CourseDefinition {
                             float credits,
                             String subjectArea,
                             String level,
-                            String defaultGradeSchemeId) {
+                            String program) {
         this.courseId = courseId;
         this.name = name;
         this.description = description;
         this.credits = credits;
         this.subjectArea = subjectArea;
         this.level = level;
-        this.defaultGradeSchemeId = defaultGradeSchemeId;
+        this.program = program;
+    }
+
+    public CourseDefinition(String courseId,
+                            String name,
+                            String description,
+                            float credits,
+                            String subjectArea,
+                            String level,
+                            GradeSystem defaultGradeSystem,
+                            String program) {
+        this.courseId = courseId;
+        this.name = name;
+        this.description = description;
+        this.credits = credits;
+        this.subjectArea = subjectArea;
+        this.level = level;
+        this.defaultGradeSystem = defaultGradeSystem;
+        this.program = program;
     }
 
     public String getCourseId() { return courseId; }
@@ -58,8 +80,10 @@ public class CourseDefinition {
     public String getLevel() { return level; }
     public void setLevel(String level) { this.level = level; }
 
-    public String getDefaultGradeSchemeId() { return defaultGradeSchemeId; }
-    public void setDefaultGradeSchemeId(String defaultGradeSchemeId) { this.defaultGradeSchemeId = defaultGradeSchemeId; }
+    public GradeSystem getDefaultGradeSystem() {
+        return defaultGradeSystem;
+    }
 
-
+    public String getProgram() { return program;}
+    public void setProgram(String program) { this.program = program;}
 }

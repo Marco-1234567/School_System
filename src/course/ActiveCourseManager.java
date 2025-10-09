@@ -1,5 +1,7 @@
 package course;
-import Persons.Teacher;
+
+import grade.GradeSystem;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,11 +9,20 @@ public class ActiveCourseManager {
 
     private final ArrayList<ActiveCourse> activeCourses = new ArrayList<>();
 
+
+
+    public ActiveCourseManager(List<ActiveCourse> activeCourses) {
+        if (activeCourses != null) {
+            this.activeCourses.addAll(activeCourses);
+        }
+    }
+
     public ActiveCourse addFromDefinition(CourseDefinition base,
                                           String startDate,
                                           String endDate,
                                           int enrollmentLimit,
-                                          String gradeSchemeId) {
+                                          GradeSystem gradeSystem
+                                         ) {
         if (base == null) return null;
         ActiveCourse ac = new ActiveCourse(
                 base.getCourseId(),
@@ -22,10 +33,9 @@ public class ActiveCourseManager {
                 base.getLevel(),
                 startDate,
                 endDate,
-                new ArrayList<Teacher>(),                   //tom
                 enrollmentLimit,
-                gradeSchemeId,
-                ActiveCourse.Status.PLANNED
+                ActiveCourse.Status.PLANNED,
+                gradeSystem
         );
         activeCourses.add(ac);
         return ac;
@@ -36,9 +46,10 @@ public class ActiveCourseManager {
                                          String startDate,
                                          String endDate,
                                          int enrollmentLimit,
-                                         String gradeSchemeId) {
+                                         GradeSystem gradeSystem
+                                         ) {
         CourseDefinition base = courseMgr.selectCourseDefinitionByNumber(number);
-        return addFromDefinition(base, startDate, endDate, enrollmentLimit, gradeSchemeId);
+        return addFromDefinition(base, startDate, endDate, enrollmentLimit, gradeSystem);
     }
 
     public void removeActiveCourse(int index){

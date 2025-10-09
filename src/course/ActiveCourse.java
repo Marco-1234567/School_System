@@ -1,9 +1,9 @@
 package course;
 
-import Persons.Teacher;
-import java.util.ArrayList;
-import java.util.List;
-import Persons.Teacher;
+
+
+
+import grade.GradeSystem;
 
 public final class ActiveCourse extends CourseDefinition{
 
@@ -14,10 +14,10 @@ public final class ActiveCourse extends CourseDefinition{
     private final int activeCourseId;
     private final String startDate;
     private final String endDate;
-    private final ArrayList<Teacher> teachers;
+    //private final ArrayList<Teacher> teachers;
     private int enrollmentLimit;
-    private final String gradeSchemeId;
     private Status status;
+    private final GradeSystem gradeSystem;
 
     public ActiveCourse(
             String courseId,
@@ -28,18 +28,18 @@ public final class ActiveCourse extends CourseDefinition{
             String level,
             String startDate,
             String endDate,
-            List<Teacher> teachers,
+            //List<Teacher> teachers,
             int enrollmentLimit,
-            String gradeSchemeId,
-            Status status
+            Status status,
+            GradeSystem gradeSystem
     ) {
         super(courseId, name, description, credits, subjectArea, level);
+        this.gradeSystem = gradeSystem;
         this.activeCourseId = staticCountId++;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.teachers = new ArrayList<>(teachers);
+        //this.teachers = new ArrayList<>(teachers);
         this.enrollmentLimit = enrollmentLimit;
-        this.gradeSchemeId = gradeSchemeId;
         this.status = status;
     }
 
@@ -49,11 +49,9 @@ public final class ActiveCourse extends CourseDefinition{
 
     public String getEndDate() { return endDate; }
 
-    public List<Teacher> getTeachers() { return teachers; }
+   // public List<Teacher> getTeachers() { return teachers; }
 
     public int getEnrollmentLimit() { return enrollmentLimit; }
-
-    public String getGradeSchemeId() { return gradeSchemeId; }
 
     public Status getStatus() { return status; }
 
@@ -66,6 +64,10 @@ public final class ActiveCourse extends CourseDefinition{
         this.enrollmentLimit = enrollmentLimit;
     }
 
+    public GradeSystem getGradeSystem() { return gradeSystem;}
 
-
+    public String toString()
+    {
+        return "ActiveCourse Id : "+ activeCourseId;
+    }
 }
