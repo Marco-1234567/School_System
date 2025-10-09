@@ -1,18 +1,12 @@
-import java.util.Scanner;
 import java.util.Stack;
-
 import course.CourseDefinition;
 import course.CourseDefinitionManager;
 import course.ActiveCourse;
 import course.ActiveCourseManager;
 import Persons.Student;
 import Persons.StudentManagement;
-import grade.*;
 import data.TestData;
-import grade.Grade;
-import grade.GradeScheme;
-import grade.GradeSystem;
-import grade.LetterGradeScheme;
+import grade.*;
 import menus.*;
 
 public class Application {
