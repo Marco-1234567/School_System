@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Stack;
 import course.CourseDefinition;
 import course.CourseDefinitionManager;
 import course.ActiveCourse;
@@ -9,13 +9,12 @@ import grade.Grade;
 import grade.GradeScheme;
 import grade.GradeSystem;
 import grade.LetterGradeScheme;
-import menus.MainMenu;
+import menus.*;
 
 public class Application {
 
     private static Application instance;
     TestData td = new TestData();
-    private final Scanner sc = new Scanner(System.in);
     private final CourseDefinitionManager courseMgr = new CourseDefinitionManager();
     private final ActiveCourseManager activeMgr = new ActiveCourseManager(td.getActiveCourses());
 
@@ -110,9 +109,6 @@ public class Application {
 
         //-----to here -------------------------
 
-        //----Sebastian's menu =BEGIN---------
-        MainMenu.getInstance().draw();
-        //----Sebastian's menu =END-----------
 
         //------Enrollment_____//
        Student student = new Student("David", "D");
@@ -137,5 +133,34 @@ public class Application {
         System.out.println("Enrollment 1: "+ enrollment1.toString());
 
         //_____Enrollment End___//
+
+        //----Sebastian's menu =BEGIN---------
+        // Initialize menu stack
+        // push MainMenu to menu stack
+        //DO==
+        // peek the menu stack
+        // update
+        // - draw
+        // -- clear screen
+        // -- draw menu title
+        // -- draw menu options
+        // - get input from scanner
+        // - validate input
+        //-------- menu dependant --------
+        // - switch on input
+        // -- 0. (back/exit) { pop the menu stack }
+        // -- 1. Students { push StudentMenu to menu stack } // these three are only true in MainMenu!
+        // -- 2. Courses { push CoursesMenu to menu stack }
+        // -- 3. Teachers { push TeacherMenu to menu stack } // impossible to do from within TeacherMenu, no access to menu stack!
+        //-------- menu dependant --------
+        //==WHILE menu stack not empty
+        // menu dependants should be implemented in each menu subclass... but how do they get access to the menu stack? parameter?
+        // yes, first attempt at implementing the above
+        Stack<Menu> menuStack = new Stack<>();
+        menuStack.push(MainMenu.get());
+        while(!menuStack.isEmpty()) {
+            menuStack.peek().update(menuStack);
+        }
+        //----Sebastian's menu =END-----------
     }
 }
