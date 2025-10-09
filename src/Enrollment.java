@@ -1,12 +1,13 @@
 import Persons.Student;
 import course.ActiveCourse;
-import grade.Grade;
+import grade.*;
 
 public class Enrollment {
     private final Student student;
     private final ActiveCourse activeCourse;
-    private final Grade grade;
     private final String enrolledDate;
+    private final int  gradeScore;
+    private final Grade grade;
 
 //    public enum Status {
 //        ACTIVE,    // inskriven och pågående
@@ -28,18 +29,31 @@ public class Enrollment {
 
     public Enrollment(
                       Student student,
-                      Grade grade,
                       ActiveCourse activeCourse,
-                      String enrolledDate
+                      String enrolledDate,
+                      int gradeScore
+
                      ) {
         this.student= student;
-        this.grade = grade;
         this.activeCourse = activeCourse;
         this.enrolledDate=enrolledDate;
+        this.gradeScore= gradeScore;
+
+        GradeSystem gradeSystem = activeCourse.getGradeSystem();
+        GradeScheme gradeScheme ;
+
+        if(gradeSystem == GradeSystem.LETTER){
+            gradeScheme = new LetterGradeScheme();
+        } else if(gradeSystem == GradeSystem.PASS_FAIL){
+            gradeScheme = new PassFailScheme();
+        } else{
+            throw new IllegalArgumentException("Invalid grade system");
+        }
+        this.grade = gradeScheme.evaluateGrade(gradeScore);
     }
 
     public String toString() {
-      return student.toString() + " " + grade.toString() + " " + activeCourse.toString() + " " + enrolledDate;
+      return student.toString() + " Grade:  " + grade.toString() + " / Course: " + activeCourse.toString() + "/ Date: " + enrolledDate;
     }
 
 }
