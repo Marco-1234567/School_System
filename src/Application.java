@@ -1,14 +1,13 @@
+import java.util.Scanner;
 import java.util.Stack;
+
 import course.CourseDefinition;
 import course.CourseDefinitionManager;
 import course.ActiveCourse;
 import course.ActiveCourseManager;
 import Persons.Student;
 import Persons.StudentManagement;
-import grade.Grade;
-import grade.GradeScheme;
-import grade.GradeSystem;
-import grade.LetterGradeScheme;
+import grade.*;
 import menus.*;
 
 public class Application {
@@ -112,9 +111,11 @@ public class Application {
 
         //------Enrollment_____//
        Student student = new Student("David", "D");
-      GradeScheme scheme2 = new LetterGradeScheme();
-        int score = 56;
-        Grade grade = scheme2.evaluateGrade(score);
+<<<<<<< HEAD
+        GradeScore gradeScore = new GradeScore(50);
+=======
+        int gradeScore = 56;
+>>>>>>> d3a3303 (Update grade classess, add GradeScore)
         String enrollmentDate = "2025-08-20";
         ActiveCourse programming1 = new ActiveCourse(
                 "CS101",
@@ -129,7 +130,7 @@ public class Application {
                 ActiveCourse.Status.ACTIVE,
                 GradeSystem.LETTER
         );
-        Enrollment enrollment1 = new Enrollment(student, grade, programming1, enrollmentDate);
+        Enrollment enrollment1 = new Enrollment(student,  programming1, enrollmentDate, gradeScore);
         System.out.println("Enrollment 1: "+ enrollment1.toString());
 
         //_____Enrollment End___//

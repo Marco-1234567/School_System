@@ -1,12 +1,19 @@
 import Persons.Student;
 import course.ActiveCourse;
-import grade.Grade;
+import grade.*;
 
 public class Enrollment {
     private final Student student;
     private final ActiveCourse activeCourse;
-    private final Grade grade;
     private final String enrolledDate;
+<<<<<<< HEAD
+    private  FinalGrade finalGrade;
+    private  GradeScore gradeScore;
+
+=======
+    private final int  gradeScore;
+    private final Grade grade;
+>>>>>>> d3a3303 (Update grade classess, add GradeScore)
 
 //    public enum Status {
 //        ACTIVE,    // inskriven och pågående
@@ -27,19 +34,63 @@ public class Enrollment {
 //    private String gradeComment;
 
     public Enrollment(
-                      Student student,
-                      Grade grade,
-                      ActiveCourse activeCourse,
-                      String enrolledDate
-                     ) {
+<<<<<<< HEAD
+            Student student,
+            ActiveCourse activeCourse,
+            String enrolledDate,
+//            FinalGrade finalGrade,
+            GradeScore gradeScore
+
+
+    ) {
+
         this.student= student;
-        this.grade = grade;
         this.activeCourse = activeCourse;
         this.enrolledDate=enrolledDate;
+=======
+                      Student student,
+                      ActiveCourse activeCourse,
+                      String enrolledDate,
+                      int gradeScore
+
+                     ) {
+        this.student= student;
+        this.activeCourse = activeCourse;
+        this.enrolledDate=enrolledDate;
+        this.gradeScore= gradeScore;
+>>>>>>> d3a3303 (Update grade classess, add GradeScore)
+
+        GradeSystem gradeSystem = activeCourse.getGradeSystem();
+        GradeScheme gradeScheme ;
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> d3a3303 (Update grade classess, add GradeScore)
+        if(gradeSystem == GradeSystem.LETTER){
+            gradeScheme = new LetterGradeScheme();
+        } else if(gradeSystem == GradeSystem.PASS_FAIL){
+            gradeScheme = new PassFailScheme();
+        } else{
+            throw new IllegalArgumentException("Invalid grade system");
+        }
+<<<<<<< HEAD
+
+
+        Grade grade= gradeScheme.evaluateGrade(gradeScore.getGradeValue());
+        this.finalGrade= new FinalGrade(gradeScore, grade);
+//
     }
 
     public String toString() {
-      return student.toString() + " " + grade.toString() + " " + activeCourse.toString() + " " + enrolledDate;
+      return student.toString() + " Grade:  " + finalGrade.getGrade().toString() + " / Course: " + activeCourse.toString() + "/ Date: " + enrolledDate;
+=======
+        this.grade = gradeScheme.evaluateGrade(gradeScore);
+    }
+
+    public String toString() {
+      return student.toString() + " Grade:  " + grade.toString() + " / Course: " + activeCourse.toString() + "/ Date: " + enrolledDate;
+>>>>>>> d3a3303 (Update grade classess, add GradeScore)
     }
 
 }
