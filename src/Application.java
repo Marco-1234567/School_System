@@ -15,7 +15,6 @@ public class Application {
 
     private static Application instance;
     TestData td = new TestData();
-    private final Scanner sc = new Scanner(System.in);
     private final CourseDefinitionManager courseMgr = new CourseDefinitionManager();
     private final ActiveCourseManager activeMgr = new ActiveCourseManager(td.getActiveCourses());
 
