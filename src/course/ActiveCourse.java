@@ -1,10 +1,9 @@
 package course;
 
-import Persons.Teacher;
-import java.util.ArrayList;
-import java.util.List;
 
-import grade.GradeScheme;
+
+
+import grade.GradeSystem;
 
 public final class ActiveCourse extends CourseDefinition{
 
@@ -17,9 +16,8 @@ public final class ActiveCourse extends CourseDefinition{
     private final String endDate;
     //private final ArrayList<Teacher> teachers;
     private int enrollmentLimit;
-    //private final String gradeSchemeId;
     private Status status;
-    private final GradeScheme gradeScheme;
+    private final GradeSystem gradeSystem;
 
     public ActiveCourse(
             String courseId,
@@ -32,11 +30,11 @@ public final class ActiveCourse extends CourseDefinition{
             String endDate,
             //List<Teacher> teachers,
             int enrollmentLimit,
-            GradeScheme gradeScheme,
-            Status status
+            Status status,
+            GradeSystem gradeSystem
     ) {
         super(courseId, name, description, credits, subjectArea, level);
-        this.gradeScheme = gradeScheme;
+        this.gradeSystem = gradeSystem;
         this.activeCourseId = staticCountId++;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -65,6 +63,8 @@ public final class ActiveCourse extends CourseDefinition{
 
         this.enrollmentLimit = enrollmentLimit;
     }
+
+    public GradeSystem getGradeSystem() { return gradeSystem;}
 
     public String toString()
     {
