@@ -5,10 +5,7 @@ import course.ActiveCourse;
 import course.ActiveCourseManager;
 import Persons.Student;
 import Persons.StudentManagement;
-import grade.Grade;
-import grade.GradeScheme;
-import grade.GradeSystem;
-import grade.LetterGradeScheme;
+import grade.*;
 import menus.MainMenu;
 
 public class Application {
@@ -116,7 +113,7 @@ public class Application {
 
         //------Enrollment_____//
        Student student = new Student("David", "D");
-        int gradeScore = 56;
+        GradeScore gradeScore = new GradeScore(50);
         String enrollmentDate = "2025-08-20";
         ActiveCourse programming1 = new ActiveCourse(
                 "CS101",
