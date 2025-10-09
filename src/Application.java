@@ -5,6 +5,7 @@ import course.ActiveCourse;
 import course.ActiveCourseManager;
 import Persons.Student;
 import Persons.StudentManagement;
+import data.TestData;
 import grade.Grade;
 import grade.GradeScheme;
 import grade.GradeSystem;
@@ -14,7 +15,7 @@ import menus.*;
 public class Application {
 
     private static Application instance;
-    TestData td = new TestData();
+    TestData td = TestData.get();
     private final CourseDefinitionManager courseMgr = new CourseDefinitionManager();
     private final ActiveCourseManager activeMgr = new ActiveCourseManager(td.getActiveCourses());
 
@@ -36,7 +37,7 @@ public class Application {
 
 
         //Courses
-        // TestData
+        // data.TestData
         for (CourseDefinition cd : td.getCourseCatalogueData()) {
             courseMgr.addCourseDefinition(cd);
         }
