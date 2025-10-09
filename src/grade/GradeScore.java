@@ -7,6 +7,7 @@ public class GradeScore {
     public GradeScore(int gradeValue) {
         this.gradeValue = gradeValue;
     }
+
     public int getGradeValue() {
         return gradeValue;
     }
