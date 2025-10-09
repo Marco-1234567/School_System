@@ -93,25 +93,20 @@ public class Application {
 //            System.out.println("Invalid selection — no course created: " + ac.getActiveCourseId());
 //        }
 
-        // todo bla bla Student testing
-
-
-        StudentManagement sManager = new StudentManagement(td.getStudentsData());
-
-        System.out.println("\nStudent list at start:");
-        sManager.PrintListStudents();
-
-        sManager.addStudent( new Student("David", "D"));
-        System.out.println("\nStudent list after add:");
-        sManager.PrintListStudents();
-
-        System.out.println("\nStudent list after remove no 3:");
-        sManager.removeStudent(2);  // Obs: [0-n]
-        sManager.PrintListStudents();
-
-
-
-        //-----to here -------------------------
+        // region Student testing
+//        StudentManagement sManager = new StudentManagement(td.getStudentsData());
+//
+//        System.out.println("\nStudent list at start:");
+//        sManager.PrintListStudents();
+//
+//        sManager.addStudent( new Student("David", "D"));
+//        System.out.println("\nStudent list after add:");
+//        sManager.PrintListStudents();
+//
+//        System.out.println("\nStudent list after remove no 3:");
+//        sManager.removeStudent(2);  // Obs: [0-n]
+//        sManager.PrintListStudents();
+        //endregion-----to here -------------------------
 
 
         //------Enrollment_____//
