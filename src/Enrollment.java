@@ -7,9 +7,9 @@ public class Enrollment {
     private final ActiveCourse activeCourse;
     private final String enrolledDate;
     private final FinalGrade finalGrade;
-    private  GradeScore gradeScore;
+    private GradeScore gradeScore;
     private Grade grade;
-
+ 
 //    public enum Status {
 //        ACTIVE,    // inskriven och pågående
 //        DROPPED,   // avbrutit
@@ -29,12 +29,12 @@ public class Enrollment {
 //    private String gradeComment;
 
     public Enrollment(
-
             Student student,
             ActiveCourse activeCourse,
             String enrolledDate,
             GradeScore gradeScore
     ) {
+  
         this.student= student;
         this.activeCourse = activeCourse;
         this.enrolledDate=enrolledDate;
@@ -56,5 +56,6 @@ public class Enrollment {
 
     public String toString() {
       return student.toString() + " Grade:  " + finalGrade.getGrade().toString() + " / Course: " + activeCourse.toString() + "/ Date: " + enrolledDate;
+
     }
 }
