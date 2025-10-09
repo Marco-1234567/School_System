@@ -7,6 +7,7 @@ import Persons.Student;
 import Persons.StudentManagement;
 import grade.Grade;
 import grade.GradeScheme;
+import grade.GradeSystem;
 import grade.LetterGradeScheme;
 import menus.MainMenu;
 
@@ -129,8 +130,8 @@ public class Application {
                 "2025-08-20",
                 "2025-12-15",
                 30,
-                scheme2,
-                ActiveCourse.Status.ACTIVE
+                ActiveCourse.Status.ACTIVE,
+                GradeSystem.LETTER
         );
         Enrollment enrollment1 = new Enrollment(student, grade, programming1, enrollmentDate);
         System.out.println("Enrollment 1: "+ enrollment1.toString());
