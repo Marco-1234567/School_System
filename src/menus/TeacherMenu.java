@@ -3,16 +3,10 @@ package menus;
 public class TeacherMenu extends Menu {
     private static final TeacherMenu INSTANCE = new TeacherMenu("Teachers");
     private TeacherMenu(String title) {
-        super(title, new Menu[0]);
+        super(title, null);
     }
 
     public static TeacherMenu get() {
         return INSTANCE;
-    }
-
-    @Override
-    protected void drawOptions() {
-        super.drawOptions();
-        System.out.printf("0. Back%n");
     }
 }

@@ -2,7 +2,6 @@ package menus;
 
 import Persons.Student;
 import Persons.StudentManagement;
-
 import java.util.Stack;
 
 public class AddStudentMenu extends Menu {
@@ -16,12 +15,18 @@ public class AddStudentMenu extends Menu {
     }
 
     @Override
+    protected void draw() {
+        clearScreen();
+        drawTitle();
+    }
+
+    @Override
     public void update(Stack<Menu> menuStack) {
         draw();
         System.out.print("First name: ");
-        String firstName = SCANNER.nextLine();
+        String firstName = getValidString();
         System.out.print("Last name: ");
-        String lastName = SCANNER.nextLine();
+        String lastName = getValidString();
 
         StudentManagement.get().addStudent(new Student(firstName, lastName));
         menuStack.pop();

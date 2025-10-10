@@ -1,8 +1,6 @@
 package menus;
 
 import Persons.StudentManagement;
-
-import java.util.List;
 import java.util.Stack;
 
 public class ListStudentsMenu extends Menu{
@@ -16,12 +14,20 @@ public class ListStudentsMenu extends Menu{
     }
 
     @Override
+    protected void drawOptions() {
+        for (var student : StudentManagement.get().getStudents()) {
+            System.out.printf(
+                "\t%s %s%n",
+                student.getFirstName(),
+                student.getLastName()
+            );
+        }
+    }
+
+    @Override
     public void update(Stack<Menu> menuStack) {
         draw();
-        StudentManagement.get().PrintListStudents();
-        System.out.printf("0. Back%n");
-
-        if (SCANNER.nextLine().strip().equals("0")) {
+        if (getValidInt() == 0) {
             menuStack.pop();
         }
     }

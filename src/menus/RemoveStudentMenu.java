@@ -1,13 +1,10 @@
 package menus;
 
 import Persons.StudentManagement;
-
 import java.util.Stack;
 
 public class RemoveStudentMenu extends Menu {
-
     private static final RemoveStudentMenu INSTANCE = new RemoveStudentMenu("Remove Student");
-
     private RemoveStudentMenu(String title) {
         super(title, null);
     }
@@ -17,18 +14,53 @@ public class RemoveStudentMenu extends Menu {
     }
 
     @Override
+    protected int getValidInt() {
+        String intputString = SCANNER.nextLine().strip();
+        int input;
+        try {
+            input = Integer.parseInt(intputString);
+            if (input < 0 || input > StudentManagement.get().getStudents().size()) {
+                setError(String.format("%d is either too high or too low!", input));
+                input = -1;
+            }
+        } catch (NumberFormatException e) {
+            setError(String.format("%s is not a number!", intputString.isEmpty() ? "Input" : intputString));
+            input = -1;
+        }
+        return input;
+    }
+
+    @Override
+    protected void drawOptions() {
+        int n = 1;
+        for (var student : StudentManagement.get().getStudents()) {
+            System.out.printf(
+                "%d.\t%s %s%n",
+                n++,
+                student.getFirstName(),
+                student.getLastName()
+            );
+        }
+    }
+
+    @Override
+    protected void drawPrompt() {
+        System.out.print("Remove Student #: ");
+    }
+
+    @Override
     public void update(Stack<Menu> menuStack) {
         draw();
-        System.out.println("\nList of students");
-        StudentManagement.get().PrintListStudents();
-        System.out.print("Remove student att index: ");
-        int index = SCANNER.nextInt();
-        SCANNER.nextLine();
+        int studentNumber = getValidInt();
 
-        StudentManagement.get().removeStudent(index - 1);
-
-        System.out.println("\nList of students");
-        StudentManagement.get().PrintListStudents();
-        menuStack.pop();
+        switch (studentNumber) {
+            case -1:
+                return;
+            case 0:
+                menuStack.pop();
+                break;
+            default:
+                StudentManagement.get().removeStudent(studentNumber - 1);
+        }
     }
 }
