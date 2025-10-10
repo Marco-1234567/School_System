@@ -40,7 +40,7 @@ abstract public class Menu {
             // set the error message to be displayed in the next rendering of the menu, and set the return value to -1 signaling to the program
             // that it should not continue using this input and return(going back to the menu loop in Application)
         } catch (NumberFormatException e) {
-            this.error = String.format("Error: %s is not a number!", inputString.isEmpty() ? "Input" : inputString);
+            this.error = String.format("Error: \"%s\" is not a number!", inputString);
             input = -1;
         } catch (RuntimeException e) {
             this.error = e.getMessage();
@@ -92,8 +92,8 @@ abstract public class Menu {
         this.error = errorString;
     }
 
-    protected void drawPrompt() {
-        System.out.print("> ");
+    protected void drawPrompt(String prompt) {
+        System.out.print(prompt);
     }
 
     protected void draw() {
@@ -102,7 +102,7 @@ abstract public class Menu {
         drawOptions();
         drawFinalOption("Back");
         dumpError();
-        drawPrompt();
+        drawPrompt("> ");
     }
 
     public void update(Stack<Menu> menuStack) {

@@ -1,16 +1,16 @@
-package menus;
-
-import Persons.Student;
-import Persons.StudentManagement;
+package menus.teacher;
+import Persons.Teacher;
+import Persons.TeacherManagement;
+import menus.Menu;
 import java.util.Stack;
 
-public class AddStudentMenu extends Menu {
-    private static final AddStudentMenu INSTANCE = new AddStudentMenu("Add Student");
-    private AddStudentMenu(String title) {
+public class AddTeacherMenu extends Menu {
+    private static final AddTeacherMenu INSTANCE = new AddTeacherMenu("Add teacher");
+    private AddTeacherMenu(String title) {
         super(title, null);
     }
 
-    public static AddStudentMenu get() {
+    public static AddTeacherMenu get() {
         return INSTANCE;
     }
 
@@ -33,7 +33,7 @@ public class AddStudentMenu extends Menu {
         drawPrompt("Last name: ");
         String lastName = getValidString();
 
-        StudentManagement.get().addStudent(new Student(firstName, lastName));
+        TeacherManagement.get().addTeacher(new Teacher(firstName, lastName));
         menuStack.pop();
     }
 }

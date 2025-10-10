@@ -24,7 +24,7 @@ public class RemoveStudentMenu extends Menu {
                 input = -1;
             }
         } catch (NumberFormatException e) {
-            setError(String.format("%s is not a number!", intputString.isEmpty() ? "Input" : intputString));
+            setError(String.format("Error: \"%s\" is not a number!", intputString));
             input = -1;
         }
         return input;
@@ -44,7 +44,7 @@ public class RemoveStudentMenu extends Menu {
     }
 
     @Override
-    protected void drawPrompt() {
+    protected void drawPrompt(String prompt) {
         System.out.print("Remove Student #: ");
     }
 
