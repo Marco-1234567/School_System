@@ -2,6 +2,7 @@ package menus;
 
 import menus.teacher.AddTeacherMenu;
 import menus.teacher.ListTeachersMenu;
+import menus.teacher.RemoveTeacherMenu;
 
 public class TeacherMenu extends Menu {
     private static final TeacherMenu INSTANCE = new TeacherMenu("Teachers");
@@ -10,7 +11,8 @@ public class TeacherMenu extends Menu {
             title,
             new Menu[] {
                 AddTeacherMenu.get(),
-                ListTeachersMenu.get()
+                RemoveTeacherMenu.get(),
+                ListTeachersMenu.get(),
             }
         );
     }
