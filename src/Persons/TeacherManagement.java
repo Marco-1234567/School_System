@@ -19,8 +19,8 @@ public class TeacherManagement {
     public void addTeacher(Teacher teacher) {
         this.teachers.add(teacher);
     }
-    public void removeTeacher(Teacher teacher) {
-        this.teachers.remove(teacher);
+    public void removeTeacher(int index) {
+        this.teachers.remove(index);
     }
 
     public final List<Teacher> getTeachers() {
