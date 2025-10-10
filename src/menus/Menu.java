@@ -88,6 +88,10 @@ abstract public class Menu {
         this.error = "";
     }
 
+    protected void setError(String errorString) {
+        this.error = errorString;
+    }
+
     protected void drawPrompt() {
         System.out.print("> ");
     }
