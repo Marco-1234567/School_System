@@ -17,10 +17,4 @@ public class TeacherMenu extends Menu {
     public static TeacherMenu get() {
         return INSTANCE;
     }
-
-    @Override
-    protected void drawOptions() {
-        super.drawOptions();
-        System.out.printf("0. Back%n");
-    }
 }
