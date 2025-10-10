@@ -15,7 +15,13 @@ public class ListStudentsMenu extends Menu{
 
     @Override
     protected void drawOptions() {
-        StudentManagement.get().PrintListStudents();
+        for (var student : StudentManagement.get().getStudents()) {
+            System.out.printf(
+                "\t%s %s%n",
+                student.getFirstName(),
+                student.getLastName()
+            );
+        }
     }
 
     @Override
